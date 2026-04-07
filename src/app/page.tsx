@@ -215,7 +215,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid-2" style={{ gap: "2rem" }}>
-            <div className="neo-card neo-card--orange">
+            <div className="neo-card neo-card--white">
               <h3 style={{ marginBottom: "1rem" }}>Before</h3>
               <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                 <li style={{ fontWeight: 600, display: "flex", alignItems: "flex-start", gap: "0.5rem" }}><X size={18} strokeWidth={3} style={{ flexShrink: 0, marginTop: "2px" }} /> Confused about your future</li>
