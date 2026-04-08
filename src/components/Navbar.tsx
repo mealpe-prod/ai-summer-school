@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+
 import { useState } from "react";
 
 const navLinks = [
@@ -18,14 +18,9 @@ export default function Navbar() {
     <nav className="navbar" id="navbar">
       <div className="navbar__inner">
         <Link href="/" className="navbar__logo">
-          <Image
+          <img
             src="/images/logo.png"
             alt="AI Summer School 2026"
-            width={140}
-            height={48}
-            priority
-            unoptimized
-            style={{ height: "48px", width: "auto" }}
           />
         </Link>
 

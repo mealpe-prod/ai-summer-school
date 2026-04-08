@@ -1,5 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import {
+  Briefcase, Palette, Bot, Mic, Zap, Handshake, Target,
+  Monitor, BarChart2, Megaphone
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Speakers – AI Summer School 2026",
@@ -27,9 +31,9 @@ export default function SpeakersPage() {
           </p>
           <div
             className="neo-badge neo-badge--orange"
-            style={{ marginTop: "1.5rem", fontSize: "1rem", padding: "0.5rem 1.25rem" }}
+            style={{ marginTop: "1.5rem", fontSize: "1rem", padding: "0.5rem 1.25rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
           >
-            🎤 Speaker lineup coming soon
+            <Megaphone size={16} strokeWidth={2.5} /> Speaker lineup coming soon
           </div>
         </div>
       </section>
@@ -52,24 +56,24 @@ export default function SpeakersPage() {
           <div className="grid-3">
             {[
               {
-                emoji: "💼",
+                icon: <Briefcase size={36} strokeWidth={2} />,
                 text: "People actively working in the industry",
                 color: "neo-card--orange",
               },
               {
-                emoji: "🎨",
+                icon: <Palette size={36} strokeWidth={2} />,
                 text: "Creators building real projects",
                 color: "neo-card--green",
               },
               {
-                emoji: "🤖",
+                icon: <Bot size={36} strokeWidth={2} />,
                 text: "Professionals using AI in real-world scenarios",
                 color: "neo-card--blue",
               },
             ].map((item, i) => (
               <div key={i} className={`neo-card ${item.color}`} style={{ textAlign: "center" }}>
-                <div style={{ fontSize: "2.5rem", marginBottom: "0.75rem" }}>
-                  {item.emoji}
+                <div style={{ marginBottom: "0.75rem", display: "flex", justifyContent: "center" }}>
+                  {item.icon}
                 </div>
                 <h4>{item.text}</h4>
               </div>
@@ -124,12 +128,12 @@ export default function SpeakersPage() {
               </h3>
               <ul style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {[
-                  { emoji: "⚡", label: "Practical" },
-                  { emoji: "🤝", label: "Interactive" },
-                  { emoji: "🎯", label: "Action-oriented" },
+                  { icon: <Zap size={22} strokeWidth={2.5} />, label: "Practical" },
+                  { icon: <Handshake size={22} strokeWidth={2.5} />, label: "Interactive" },
+                  { icon: <Target size={22} strokeWidth={2.5} />, label: "Action-oriented" },
                 ].map((item, i) => (
-                  <li key={i} style={{ display: "flex", gap: "0.5rem", alignItems: "center", fontWeight: 700, fontSize: "1.1rem" }}>
-                    <span style={{ fontSize: "1.5rem" }}>{item.emoji}</span>
+                  <li key={i} style={{ display: "flex", gap: "0.75rem", alignItems: "center", fontWeight: 700, fontSize: "1.1rem" }}>
+                    {item.icon}
                     {item.label}
                   </li>
                 ))}
@@ -151,21 +155,14 @@ export default function SpeakersPage() {
 
           <div className="grid-4">
             {[
-              { num: "2", label: "Expert-led sessions per day" },
-              { num: "13", label: "Speakers across 7 days" },
-              { num: "🖥", label: "Hands-on demonstrations" },
-              { num: "📊", label: "Real examples & case studies" },
+              { content: <span style={{ fontSize: "2rem", fontWeight: 900, lineHeight: 1 }}>2</span>, label: "Expert-led sessions per day" },
+              { content: <span style={{ fontSize: "2rem", fontWeight: 900, lineHeight: 1 }}>13</span>, label: "Speakers across 7 days" },
+              { content: <Monitor size={36} strokeWidth={2} />, label: "Hands-on demonstrations" },
+              { content: <BarChart2 size={36} strokeWidth={2} />, label: "Real examples & case studies" },
             ].map((item, i) => (
               <div key={i} className="neo-card" style={{ textAlign: "center" }}>
-                <div
-                  style={{
-                    fontSize: "2rem",
-                    fontWeight: 900,
-                    marginBottom: "0.5rem",
-                    lineHeight: 1,
-                  }}
-                >
-                  {item.num}
+                <div style={{ marginBottom: "0.5rem", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  {item.content}
                 </div>
                 <p style={{ fontWeight: 600, fontSize: "0.9rem" }}>
                   {item.label}
@@ -197,8 +194,8 @@ export default function SpeakersPage() {
       {/* ===== COMING SOON ===== */}
       <section className="neo-section neo-section--yellow reveal" id="coming-soon">
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ marginBottom: "1rem" }}>
-            🎤 Announcements will begin shortly
+          <h2 style={{ marginBottom: "1rem", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.6rem" }}>
+            <Mic size={32} strokeWidth={2.5} /> Announcements will begin shortly
           </h2>
           <p className="text-large mx-auto" style={{ maxWidth: "550px", marginBottom: "2rem" }}>
             We&apos;re curating a lineup of industry professionals, startup

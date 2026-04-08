@@ -15,37 +15,272 @@ export default function ProgramPage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="neo-section neo-section--purple" id="program-hero">
-        <div className="container page-hero">
-          <span className="neo-badge neo-badge--yellow">The Program</span>
-          <h1 style={{ marginTop: "1.5rem" }}>
-            This is not a course.
+      <section
+        id="program-hero"
+        style={{
+          background: "var(--color-off-white)",
+          borderBottom: "var(--border)",
+          padding: 0,
+          overflow: "hidden",
+        }}
+      >
+        {/* Top strip
+        <div
+          style={{
+            background: "var(--color-black)",
+            color: "var(--color-yellow)",
+            padding: "0.6rem 0",
+            textAlign: "center",
+            fontWeight: 900,
+            fontSize: "0.8rem",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            borderBottom: "var(--border)",
+          }}
+        >
+          ★ &nbsp; Summer 2026 · Ahmedabad · Ages 15–24 &nbsp; ★ &nbsp;
+          Limited Seats Available &nbsp; ★ &nbsp; Application Open Now &nbsp; ★
+        </div> */}
+
+        <div className="container" style={{ padding: "4rem 1.5rem 0" }}>
+          {/* Full-width heading — above the grid */}
+          <span
+            className="neo-badge neo-badge--orange"
+            style={{ marginBottom: "1.5rem", display: "inline-block" }}
+          >
+            The Program
+          </span>
+
+          <h1
+            style={{
+              fontSize: "clamp(2.5rem, 5vw, 4rem)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              textTransform: "uppercase",
+              marginTop: "1rem",
+              marginBottom: "2.5rem",
+            }}
+          >
+            Not a course.
             <br />
-            <span style={{ color: "var(--color-black)" }}>
-              This is a 7-day transformation.
+            <span
+              style={{
+                color: "var(--color-orange)",
+                whiteSpace: "nowrap",
+              }}
+            >
+              A 7-day transformation.
             </span>
           </h1>
-          <p className="text-large" style={{ marginTop: "1.25rem" }}>
-            AI Summer School is a hands-on, intensive program designed to help
-            students build real-world skills, create projects, and understand
-            how to turn skills into opportunities.
-          </p>
-          <div className="page-hero__meta">
-            <span className="neo-badge" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <MapPin size={18} strokeWidth={3} /> Ahmedabad (AMA)
-            </span>
-            <span className="neo-badge" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Calendar size={18} strokeWidth={3} /> 7 Days Intensive
-            </span>
-            <span className="neo-badge" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Users size={18} strokeWidth={3} /> 13 Industry Experts
-            </span>
+
+          {/* Two-column: copy+CTA / stat blocks */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr",
+              gap: "2.5rem",
+              alignItems: "start",
+            }}
+            className="program-hero-grid"
+          >
+            {/* LEFT — copy + CTA */}
+            <div style={{ minWidth: 0 }}>
+              <p
+                style={{
+                  fontSize: "1.15rem",
+                  lineHeight: 1.7,
+                  maxWidth: "520px",
+                  marginBottom: "2rem",
+                  fontWeight: 500,
+                }}
+              >
+                7 days of hands-on building. Real projects. Real experts. Real
+                skills that schools don&apos;t teach — and employers actually
+                want.
+              </p>
+
+              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                <Link
+                  href="/apply"
+                  className="neo-btn neo-btn--dark neo-btn--large"
+                  style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}
+                >
+                  Apply Now →
+                </Link>
+                <Link
+                  href="/curriculum"
+                  className="neo-btn neo-btn--secondary neo-btn--large"
+                  style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}
+                >
+                  View Curriculum
+                </Link>
+              </div>
+            </div>
+
+            {/* RIGHT — stat blocks */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "0.5rem",
+              }}
+            >
+              <div
+                style={{
+                  background: "var(--color-orange)",
+                  border: "var(--border)",
+                  boxShadow: "var(--shadow-md)",
+                  padding: "1.5rem",
+                  gridColumn: "1 / -1",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "clamp(3rem, 7vw, 5rem)",
+                    fontWeight: 900,
+                    lineHeight: 1,
+                    color: "var(--color-white)",
+                  }}
+                >
+                  7
+                </div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: "1.1rem",
+                    color: "var(--color-white)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.06em",
+                    marginTop: "0.25rem",
+                  }}
+                >
+                  Intensive Days
+                </div>
+                <div
+                  style={{
+                    fontSize: "0.85rem",
+                    color: "rgba(255,255,255,0.75)",
+                    marginTop: "0.25rem",
+                    fontWeight: 500,
+                  }}
+                >
+                  Build. Learn. Ship — every single day.
+                </div>
+              </div>
+
+              <div
+                style={{
+                  background: "var(--color-yellow)",
+                  border: "var(--border)",
+                  boxShadow: "var(--shadow-md)",
+                  padding: "1.5rem",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                    fontWeight: 900,
+                    lineHeight: 1,
+                    color: "var(--color-black)",
+                  }}
+                >
+                  13
+                </div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: "0.95rem",
+                    color: "var(--color-black)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                    marginTop: "0.25rem",
+                  }}
+                >
+                  Industry Experts
+                </div>
+              </div>
+
+              <div
+                style={{
+                  background: "var(--color-black)",
+                  border: "var(--border)",
+                  boxShadow: "var(--shadow-md)",
+                  padding: "1.5rem",
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                    fontWeight: 900,
+                    lineHeight: 1,
+                    color: "var(--color-yellow)",
+                  }}
+                >
+                  5+
+                </div>
+                <div
+                  style={{
+                    fontWeight: 800,
+                    fontSize: "0.95rem",
+                    color: "var(--color-white)",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                    marginTop: "0.25rem",
+                  }}
+                >
+                  Real Projects
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="page-hero__cta">
-            <Link href="/apply" className="neo-btn neo-btn--primary neo-btn--large">
-              Apply Now →
-            </Link>
-          </div>
+        </div>
+
+        {/* Bottom pillar strip */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            marginTop: "3rem",
+            borderTop: "var(--border)",
+          }}
+        >
+          {[
+            { icon: <Target size={22} strokeWidth={3} />, label: "Build-First Learning", sub: "Every day ends with something created" },
+            { icon: <Bot size={22} strokeWidth={3} />, label: "13 Expert Mentors", sub: "Real practitioners, not just teachers" },
+            { icon: <MapPin size={22} strokeWidth={3} />, label: "AMA, Ahmedabad", sub: "In-person · Immersive · Intensive" },
+          ].map((item, i) => (
+            <div
+              key={i}
+              style={{
+                padding: "1.5rem",
+                borderRight: i < 2 ? "var(--border)" : "none",
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "0.75rem",
+              }}
+            >
+              <span
+                style={{
+                  background: "var(--color-orange)",
+                  color: "var(--color-white)",
+                  border: "2px solid var(--color-black)",
+                  padding: "0.4rem",
+                  display: "flex",
+                  flexShrink: 0,
+                }}
+              >
+                {item.icon}
+              </span>
+              <div>
+                <div style={{ fontWeight: 800, fontSize: "0.95rem", textTransform: "uppercase", letterSpacing: "0.03em" }}>
+                  {item.label}
+                </div>
+                <div style={{ fontSize: "0.8rem", color: "rgba(0,0,0,0.6)", marginTop: "0.15rem", fontWeight: 500 }}>
+                  {item.sub}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -133,7 +368,7 @@ export default function ProgramPage() {
       </section>
 
       {/* ===== OUR APPROACH ===== */}
-      <section className="neo-section neo-section--yellow reveal" id="approach">
+      <section className="neo-section neo-section--purple reveal" id="approach">
         <div className="container">
           <div className="section-header">
             <span className="neo-badge section-header__tag">Our Approach</span>
@@ -147,7 +382,7 @@ export default function ProgramPage() {
               </p>
               <h3>NOT: Theory → Exam → Forget</h3>
             </div>
-            <div className="neo-card neo-card--green" style={{ textAlign: "center" }}>
+            <div className="neo-card neo-card--orange" style={{ textAlign: "center" }}>
               <p className="text-small" style={{ fontWeight: 700, marginBottom: "0.5rem" }}>
                 OUR WAY
               </p>
@@ -158,13 +393,13 @@ export default function ProgramPage() {
           <div style={{ marginTop: "2rem" }}>
             <div className="grid-4">
               {[
-                "2 expert-led sessions every day",
+                "Expert-led sessions",
                 "Hands-on workshops",
                 "Daily project creation",
-                "Portfolio building throughout the week",
+                "Portfolio building",
               ].map((item, i) => (
                 <div key={i} className="neo-card" style={{ textAlign: "center" }}>
-                  <p style={{ fontWeight: 700 }}>{item}</p>
+                  <p style={{ fontWeight: 700, fontSize: "1.5rem", lineHeight: "1.5" }}>{item}</p>
                 </div>
               ))}
             </div>
@@ -175,7 +410,7 @@ export default function ProgramPage() {
             style={{
               marginTop: "2rem",
               textAlign: "center",
-              background: "var(--color-purple)",
+              background: "var(--color-yellow)",
               color: "var(--color-black)",
             }}
           >
@@ -359,7 +594,7 @@ export default function ProgramPage() {
       </section>
 
       {/* ===== PHILOSOPHY ===== */}
-      <section className="neo-section neo-section--yellow reveal" id="philosophy">
+      <section className="neo-section neo-section--purple reveal" id="philosophy">
         <div className="container" style={{ textAlign: "center" }}>
           <span className="neo-badge neo-badge--white" style={{ marginBottom: "1.5rem" }}>
             Philosophy
@@ -381,7 +616,7 @@ export default function ProgramPage() {
 
       {/* ===== FINAL CTA ===== */}
       <section
-        className="neo-section neo-section--yellow"
+        className="neo-section neo-section--orange"
         id="program-cta"
         style={{ textAlign: "center" }}
       >

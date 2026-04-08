@@ -9,17 +9,20 @@
    CSS CUSTOM PROPERTIES
    ======================================== */
 :root {
-  /* Primary Palette */
-  --color-purple: #F3A2FB;
-  --color-orange: #FF7F38;
-  --color-blue: #ABE4FE;
-  --color-yellow: #DDFB1A;
-  --color-green: #67C279;
+  /* Primary Palette — Cream · Orange · Neon Yellow */
+  --color-orange: #FF6B1A;
+  --color-yellow: #E8FB00;
+  --color-cream: #FFF5E6;
+
+  /* Accent / UI colors (used on cards & elements, NOT section BGs) */
+  --color-orange-light: #FFE8D6;
+  --color-yellow-light: #FAFAD2;
+  --color-charcoal: #1A1A1A;
 
   /* Base Colors */
   --color-black: #000000;
   --color-white: #FFFFFF;
-  --color-off-white: #FFF8F0;
+  --color-off-white: #FFF5E6;
 
   /* Shadows */
   --shadow-sm: 3px 3px 0px var(--color-black);
@@ -224,16 +227,18 @@ p {
   box-shadow: 7px 7px 0px var(--color-black);
 }
 
+/* Card accent variants — all within 3-color palette */
 .neo-card--purple {
-  background: var(--color-purple);
+  background: var(--color-orange-light);
 }
 
 .neo-card--orange {
   background: var(--color-orange);
+  color: var(--color-white);
 }
 
 .neo-card--blue {
-  background: var(--color-blue);
+  background: var(--color-yellow-light);
 }
 
 .neo-card--yellow {
@@ -241,7 +246,22 @@ p {
 }
 
 .neo-card--green {
-  background: var(--color-green);
+  background: var(--color-orange-light);
+  color: var(--color-black);
+}
+
+.neo-card--white {
+  background: var(--color-white);
+  color: var(--color-black);
+}
+
+/* Cards inside orange sections always stay black text on white */
+.neo-section--orange .neo-card {
+  color: var(--color-black);
+}
+
+.neo-section--orange .neo-card * {
+  color: var(--color-black);
 }
 
 /* --- Button --- */
@@ -314,6 +334,7 @@ p {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  color: #000000;
   border: 2px solid var(--color-black);
   box-shadow: 2px 2px 0px var(--color-black);
   background: var(--color-white);
@@ -321,22 +342,27 @@ p {
 
 .neo-badge--yellow {
   background: var(--color-yellow);
+  color: var(--color-black);
 }
 
 .neo-badge--blue {
-  background: var(--color-blue);
+  background: var(--color-orange-light);
+  color: var(--color-black);
 }
 
 .neo-badge--green {
-  background: var(--color-green);
+  background: var(--color-yellow-light);
+  color: var(--color-black);
 }
 
 .neo-badge--purple {
-  background: var(--color-purple);
+  background: var(--color-orange-light);
+  color: var(--color-black);
 }
 
 .neo-badge--orange {
   background: var(--color-orange);
+  color: var(--color-white);
 }
 
 /* --- Section Block --- */
@@ -346,24 +372,37 @@ p {
   position: relative;
 }
 
+/* Section backgrounds — Cream · Orange · Neon Yellow ONLY */
 .neo-section--purple {
-  background: var(--color-purple);
+  background: var(--color-cream);
 }
 
 .neo-section--orange {
   background: var(--color-orange);
+  color: var(--color-white);
+}
+
+.neo-section--orange .section-header h2,
+.neo-section--orange .section-header p,
+.neo-section--orange h2,
+.neo-section--orange h3,
+.neo-section--orange h4,
+.neo-section--orange p {
+  color: var(--color-white);
 }
 
 .neo-section--blue {
-  background: var(--color-blue);
+  background: var(--color-cream);
 }
 
 .neo-section--yellow {
   background: var(--color-yellow);
+  color: var(--color-black);
 }
 
 .neo-section--green {
-  background: var(--color-green);
+  background: var(--color-yellow);
+  color: var(--color-black);
 }
 
 .neo-section--dark {
@@ -450,6 +489,7 @@ p {
   border-top: var(--border);
   border-bottom: var(--border);
   background: var(--color-yellow);
+  color: var(--color-black);
   padding: 0.75rem 0;
 }
 
@@ -857,6 +897,7 @@ p {
 
 .pricing-card--featured {
   background: var(--color-yellow);
+  color: var(--color-black);
   transform: scale(1.03);
 }
 
@@ -905,7 +946,7 @@ p {
 .pricing-card__features li::before {
   content: '✓';
   font-weight: 900;
-  color: var(--color-green);
+  color: var(--color-orange);
 }
 
 /* ========================================
@@ -1129,5 +1170,33 @@ p {
 
   h1 {
     font-size: clamp(2rem, 8vw, 3rem);
+  }
+}
+
+/* ========================================
+   PROGRAM HERO TWO-COLUMN LAYOUT
+   ======================================== */
+@media (min-width: 900px) {
+  .program-hero-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 3rem !important;
+  }
+  .program-hero-grid > * {
+    min-width: 0;
+  }
+}
+
+
+/* Pillar strip: stack on mobile */
+@media (max-width: 640px) {
+  #program-hero > div:last-child {
+    grid-template-columns: 1fr !important;
+  }
+  #program-hero > div:last-child > div {
+    border-right: none !important;
+    border-bottom: var(--border);
+  }
+  #program-hero > div:last-child > div:last-child {
+    border-bottom: none;
   }
 }

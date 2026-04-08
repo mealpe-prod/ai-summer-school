@@ -6,66 +6,81 @@ import {
   TrendingUp, Bot, Compass, Rocket
 } from "lucide-react";
 
-const faqItems = [
+const faqCategories = [
   {
-    question: "Is this beginner friendly? I don't know anything about AI.",
-    answer:
-      "Yes — 100%. You don't need any prior experience in AI, coding, design, or content. We start from the basics and guide you step-by-step. What matters is your willingness to learn and try, not your current skill level.",
+    label: "Getting Started",
+    items: [
+      {
+        question: "Is this beginner friendly? I don't know anything about AI.",
+        answer:
+          "Yes — 100%. You don't need any prior experience in AI, coding, design, or content. We start from the basics and guide you step-by-step. What matters is your willingness to learn and try, not your current skill level.",
+      },
+      {
+        question: "Do I need to know coding?",
+        answer:
+          "No. You will learn to build using AI tools and no-code platforms. Even students with zero coding background will be able to build and launch their own website.",
+      },
+      {
+        question: "What if I\'m not sure about my career yet?",
+        answer:
+          "That\'s exactly why this exists. This program helps you explore different skill areas, understand what you enjoy, and see what you\'re good at. By the end, you\'ll have much more clarity.",
+      },
+      {
+        question: "For Parents: Is this actually useful for my child\'s future?",
+        answer:
+          "Yes — and that\'s the entire point of this program. Most education today focuses on theory. This program focuses on practical skills, real-world application, and building confidence. Your child will leave with a portfolio of work, exposure to real career paths, and skills relevant in today\'s digital economy.",
+      },
+    ],
   },
   {
-    question: "For Parents: Is this actually useful for my child's future?",
-    answer:
-      "Yes — and that's the entire point of this program. Most education today focuses on theory. This program focuses on practical skills, real-world application, and building confidence. Your child will leave with a portfolio of work, exposure to real career paths, and skills relevant in today's digital economy.",
+    label: "The Experience",
+    items: [
+      {
+        question: "Will there be exams or tests?",
+        answer:
+          "No. There are no exams, no marks, no theoretical tests. Instead, your progress is based on what you build.",
+      },
+      {
+        question: "Will I get a certificate?",
+        answer:
+          "Yes. You will receive a certificate upon completion. But more importantly, you\'ll have real projects to show — which matter far more.",
+      },
+      {
+        question: "What is the daily time commitment?",
+        answer:
+          "Each day includes 2 expert sessions, hands-on workshops, and practice and building. Expect a full-day, immersive experience.",
+      },
+      {
+        question: "Can I join with my friends?",
+        answer:
+          "Yes — and we highly recommend it. Students who come with friends stay more consistent, learn faster, and enjoy the process more. Plus, you get better pricing when you apply as a group.",
+      },
+    ],
   },
   {
-    question: "Do I need to know coding?",
-    answer:
-      "No. You will learn to build using AI tools and no-code platforms. Even students with zero coding background will be able to build and launch their own website.",
-  },
-  {
-    question: "Do I need to bring a laptop?",
-    answer:
-      "Yes, a laptop is required. This is a hands-on program where students build projects, use tools, and create real outputs. A basic laptop (no high specs needed) is enough.",
-  },
-  {
-    question: "Will there be exams or tests?",
-    answer:
-      "No. There are no exams, no marks, no theoretical tests. Instead, your progress is based on what you build.",
-  },
-  {
-    question: "Will I get a certificate?",
-    answer:
-      "Yes. You will receive a certificate upon completion. But more importantly, you'll have real projects to show — which matter far more.",
-  },
-  {
-    question: "Is it worth ₹10,000?",
-    answer:
-      "In 7 days, your child will build a website, create multiple projects, learn skills across AI, content, design and business, and gain clarity on career direction. That's far more valuable than passive courses or theory-based workshops. Group pricing is also available: ₹8,000 (group of 3) or ₹6,000 (group of 5).",
-  },
-  {
-    question: "Can I join with my friends?",
-    answer:
-      "Yes — and we highly recommend it. Students who come with friends stay more consistent, learn faster, and enjoy the process more. Plus, you get better pricing when you apply as a group.",
-  },
-  {
-    question: "What if I'm not sure about my career yet?",
-    answer:
-      "That's exactly why this exists. This program helps you explore different skill areas, understand what you enjoy, and see what you're good at. By the end, you'll have much more clarity.",
-  },
-  {
-    question: "What is the daily time commitment?",
-    answer:
-      "Each day includes 2 expert sessions, hands-on workshops, and practice and building. Expect a full-day, immersive experience.",
-  },
-  {
-    question: "Where is the program happening?",
-    answer:
-      "At Ahmedabad Management Association (AMA), Ahmedabad. A professional environment designed for focused learning.",
-  },
-  {
-    question: "How many students will be there?",
-    answer:
-      "We are keeping the batch limited in size and highly interactive. This ensures personal attention and better outcomes.",
+    label: "Logistics & Pricing",
+    items: [
+      {
+        question: "Do I need to bring a laptop?",
+        answer:
+          "Yes, a laptop is required. This is a hands-on program where students build projects, use tools, and create real outputs. A basic laptop (no high specs needed) is enough.",
+      },
+      {
+        question: "Where is the program happening?",
+        answer:
+          "At Ahmedabad Management Association (AMA), Ahmedabad. A professional environment designed for focused learning.",
+      },
+      {
+        question: "How many students will be there?",
+        answer:
+          "We are keeping the batch limited in size and highly interactive. This ensures personal attention and better outcomes.",
+      },
+      {
+        question: "Is it worth ₹10,000?",
+        answer:
+          "In 7 days, your child will build a website, create multiple projects, learn skills across AI, content, design and business, and gain clarity on career direction. Group pricing: ₹8,000 (group of 3) or ₹6,000 (group of 5).",
+      },
+    ],
   },
 ];
 
@@ -275,7 +290,7 @@ export default function HomePage() {
           >
             <h3>
               You don&apos;t leave with notes. You leave with{" "}
-              <span style={{ color: "var(--color-yellow)" }}>assets</span>.
+              <span style={{ color: "var(--color-orange)" }}>assets</span>.
             </h3>
           </div>
         </div>
@@ -285,7 +300,7 @@ export default function HomePage() {
       <section className="neo-section neo-section--blue reveal" id="experience">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge section-header__tag">
+            <span className="neo-badge neo-badge--yellow section-header__tag">
               7-Day Experience
             </span>
             <h2>A structured journey from learning to earning</h2>
@@ -293,12 +308,12 @@ export default function HomePage() {
 
           <div className="grid-2" style={{ gap: "1rem" }}>
             {[
-              { day: "Day 1", title: "AI Mindset", desc: "Understand AI & how to think", color: "var(--color-purple)" },
+              { day: "Day 1", title: "AI Mindset", desc: "Understand AI & how to think", color: "var(--color-orange)" },
               { day: "Day 2", title: "Writing", desc: "Create content that connects & converts", color: "var(--color-orange)" },
-              { day: "Day 3", title: "Websites", desc: "Build and launch your own site", color: "var(--color-green)" },
-              { day: "Day 4", title: "Design", desc: "Create visuals and brand identity", color: "var(--color-yellow)" },
-              { day: "Day 5", title: "Video", desc: "Shoot, edit, and publish content", color: "var(--color-blue)" },
-              { day: "Day 6", title: "Business", desc: "Turn skills into income", color: "var(--color-purple)" },
+              { day: "Day 3", title: "Websites", desc: "Build and launch your own site", color: "var(--color-orange)" },
+              { day: "Day 4", title: "Design", desc: "Create visuals and brand identity", color: "var(--color-orange)" },
+              { day: "Day 5", title: "Video", desc: "Shoot, edit, and publish content", color: "var(--color-orange)" },
+              { day: "Day 6", title: "Business", desc: "Turn skills into income", color: "var(--color-orange)" },
               { day: "Day 7", title: "Career", desc: "Plan your next 90 days", color: "var(--color-orange)" },
             ].map((item, i) => (
               <div
@@ -458,7 +473,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid-2" style={{ gap: "2rem" }}>
-            <div className="neo-card neo-card--green">
+            <div className="neo-card neo-card--orange">
               <h3 style={{ marginBottom: "1rem" }}>Ideal for</h3>
               <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
                 <li style={{ fontWeight: 600, display: "flex", alignItems: "flex-start", gap: "0.5rem" }}><Check size={20} strokeWidth={3} style={{ flexShrink: 0, marginTop: "2px" }} /> Students (15–24) who want real skills</li>
@@ -483,7 +498,7 @@ export default function HomePage() {
       <section className="neo-section neo-section--white reveal" id="parents">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge neo-badge--blue section-header__tag">
+            <span className="neo-badge neo-badge--orange section-header__tag">
               For Parents
             </span>
             <h2>
@@ -508,7 +523,7 @@ export default function HomePage() {
           </div>
 
           <div
-            className="neo-card neo-card--blue"
+            className="neo-card neo-card--yellow"
             style={{ marginTop: "2rem", textAlign: "center" }}
           >
             <h3>Instead of just learning, they start doing.</h3>
@@ -535,7 +550,7 @@ export default function HomePage() {
               "Mentorship access",
             ].map((item, i) => (
               <div key={i} className="neo-card" style={{ textAlign: "center" }}>
-                <p style={{ fontWeight: 700 }}>{item}</p>
+                <p style={{ fontWeight: 700, fontSize: "1.5rem", lineHeight: "1.2" }}>{item}</p>
               </div>
             ))}
           </div>
@@ -543,19 +558,17 @@ export default function HomePage() {
       </section>
 
       {/* ===== FAQ ===== */}
-      <section className="neo-section neo-section--white reveal" id="faq">
+      <section className="neo-section neo-section--cream reveal" id="faq">
         <div className="container">
-          <div className="section-header">
-            <span className="neo-badge neo-badge--purple section-header__tag">
+          <div className="section-header" style={{ marginBottom: "2.5rem" }}>
+            <span className="neo-badge neo-badge--dark section-header__tag">
               FAQ
             </span>
             <h2>Still thinking about it?</h2>
-            <p>Here are honest answers.</p>
+            <p>Honest answers, grouped by what matters most.</p>
           </div>
 
-          <div style={{ maxWidth: "750px" }}>
-            <FAQ items={faqItems} />
-          </div>
+          <FAQ categories={faqCategories} />
         </div>
       </section>
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+
 
 export default function Footer() {
   return (
@@ -7,13 +7,9 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__grid">
           <div className="footer__brand">
-            <Image
+            <img
               src="/images/logo.png"
               alt="AI Summer School 2026"
-              width={120}
-              height={40}
-              unoptimized
-              style={{ height: "40px", width: "auto" }}
             />
             <p>
               We teach what schools don&apos;t. A 7-day intensive program to

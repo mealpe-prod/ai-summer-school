@@ -1,5 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import {
+  Brain, PenLine, Globe, Palette, Video, BarChart2, Rocket,
+  Calendar, Mic, Wrench, Target, CheckCircle, GraduationCap
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Curriculum – AI Summer School 2026",
@@ -10,7 +14,7 @@ export const metadata: Metadata = {
 const days = [
   {
     day: 1,
-    emoji: "🧠",
+    icon: <Brain size={22} strokeWidth={2.5} />,
     title: "The AI Mindset",
     subtitle: "Why thinking matters more than tools",
     color: "var(--color-purple)",
@@ -25,13 +29,13 @@ const days = [
     build: [
       "Explore leading AI tools",
       "Participate in discussions & debates",
-      'Create your Personal AI Manifesto',
+      "Create your Personal AI Manifesto",
     ],
     tools: ["ChatGPT", "Claude", "Gemini", "Perplexity", "Midjourney"],
   },
   {
     day: 2,
-    emoji: "✍️",
+    icon: <PenLine size={22} strokeWidth={2.5} />,
     title: "AI-Powered Writing",
     subtitle: "Content that connects and converts",
     color: "var(--color-orange)",
@@ -52,7 +56,7 @@ const days = [
   },
   {
     day: 3,
-    emoji: "🌐",
+    icon: <Globe size={22} strokeWidth={2.5} />,
     title: "Websites & Apps",
     subtitle: "Build anything, no CS degree needed",
     color: "var(--color-green)",
@@ -72,7 +76,7 @@ const days = [
   },
   {
     day: 4,
-    emoji: "🎨",
+    icon: <Palette size={22} strokeWidth={2.5} />,
     title: "Visual Design & AI Art",
     subtitle: "From ideas to stunning visuals",
     color: "var(--color-yellow)",
@@ -92,7 +96,7 @@ const days = [
   },
   {
     day: 5,
-    emoji: "🎬",
+    icon: <Video size={22} strokeWidth={2.5} />,
     title: "Video & Audio Production",
     subtitle: "Create content people can't scroll past",
     color: "var(--color-blue)",
@@ -113,7 +117,7 @@ const days = [
   },
   {
     day: 6,
-    emoji: "📊",
+    icon: <BarChart2 size={22} strokeWidth={2.5} />,
     title: "Data, Automation & Business",
     subtitle: "Turn skills into income",
     color: "var(--color-purple)",
@@ -134,7 +138,7 @@ const days = [
   },
   {
     day: 7,
-    emoji: "🚀",
+    icon: <Rocket size={22} strokeWidth={2.5} />,
     title: "Graduation & Career Roadmap",
     subtitle: "Your roadmap to winning the market",
     color: "var(--color-orange)",
@@ -170,10 +174,18 @@ export default function CurriculumPage() {
             learning → building → earning.
           </p>
           <div className="page-hero__meta">
-            <span className="neo-badge">📅 7 Days, structured</span>
-            <span className="neo-badge">🎤 13 industry experts</span>
-            <span className="neo-badge">🛠 Daily hands-on builds</span>
-            <span className="neo-badge">🎯 Portfolio-first</span>
+            <span className="neo-badge" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+              <Calendar size={14} strokeWidth={2.5} /> 7 Days, structured
+            </span>
+            <span className="neo-badge" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+              <Mic size={14} strokeWidth={2.5} /> 13 industry experts
+            </span>
+            <span className="neo-badge" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+              <Wrench size={14} strokeWidth={2.5} /> Daily hands-on builds
+            </span>
+            <span className="neo-badge" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+              <Target size={14} strokeWidth={2.5} /> Portfolio-first
+            </span>
           </div>
           <div className="page-hero__cta">
             <Link href="/apply" className="neo-btn neo-btn--dark neo-btn--large">
@@ -213,8 +225,8 @@ export default function CurriculumPage() {
                 className="day-card__header"
                 style={{ background: day.color }}
               >
-                <div className="day-card__number">
-                  {day.emoji} Day {day.day}
+                <div className="day-card__number" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                  {day.icon} Day {day.day}
                 </div>
                 <div>
                   <div className="day-card__title">{day.title}</div>
@@ -285,7 +297,9 @@ export default function CurriculumPage() {
       <section className="neo-section neo-section--green reveal" id="graduate">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge section-header__tag">🎓 Graduation</span>
+            <span className="neo-badge section-header__tag" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+              <GraduationCap size={15} strokeWidth={2.5} /> Graduation
+            </span>
             <h2>What You Graduate With</h2>
           </div>
 
@@ -297,8 +311,8 @@ export default function CurriculumPage() {
               "90-day execution plan",
               "Certificate + network",
             ].map((item, i) => (
-              <div key={i} className="neo-card" style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-                <span style={{ fontSize: "1.3rem" }}>✅</span>
+              <div key={i} className="neo-card" style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
+                <CheckCircle size={20} strokeWidth={2.5} style={{ flexShrink: 0, color: "var(--color-black)" }} />
                 <p style={{ fontWeight: 600 }}>{item}</p>
               </div>
             ))}

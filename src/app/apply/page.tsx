@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import {
+  XCircle, CheckCircle, Phone, Mail, PartyPopper
+} from "lucide-react";
 
 export default function ApplyPage() {
   const [formData, setFormData] = useState({
@@ -74,19 +77,33 @@ export default function ApplyPage() {
             <div className="neo-card">
               <h3 style={{ marginBottom: "1rem" }}>This is NOT:</h3>
               <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-                <li style={{ fontWeight: 600 }}>❌ A time-pass summer activity</li>
-                <li style={{ fontWeight: 600 }}>❌ A sit-and-listen workshop</li>
-                <li style={{ fontWeight: 600 }}>❌ A &quot;just give me certificate&quot; program</li>
+                {[
+                  "A time-pass summer activity",
+                  "A sit-and-listen workshop",
+                  'A "just give me certificate" program',
+                ].map((text, i) => (
+                  <li key={i} style={{ fontWeight: 600, display: "flex", alignItems: "flex-start", gap: "0.5rem" }}>
+                    <XCircle size={18} strokeWidth={2.5} style={{ flexShrink: 0, marginTop: "2px", color: "#c0392b" }} />
+                    {text}
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="neo-card neo-card--green">
               <h3 style={{ marginBottom: "1rem" }}>This IS for you if:</h3>
               <ul style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-                <li style={{ fontWeight: 600 }}>✅ You&apos;re curious about AI</li>
-                <li style={{ fontWeight: 600 }}>✅ You want to create, not just consume</li>
-                <li style={{ fontWeight: 600 }}>✅ You&apos;re willing to try, fail, and learn fast</li>
-                <li style={{ fontWeight: 600 }}>✅ You want to build something you&apos;re proud of</li>
+                {[
+                  "You're curious about AI",
+                  "You want to create, not just consume",
+                  "You're willing to try, fail, and learn fast",
+                  "You want to build something you're proud of",
+                ].map((text, i) => (
+                  <li key={i} style={{ fontWeight: 600, display: "flex", alignItems: "flex-start", gap: "0.5rem" }}>
+                    <CheckCircle size={18} strokeWidth={2.5} style={{ flexShrink: 0, marginTop: "2px" }} />
+                    {text}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -116,8 +133,8 @@ export default function ApplyPage() {
               "Understand how to earn with skills",
               "Leave with a portfolio of real work",
             ].map((item, i) => (
-              <div key={i} className="neo-card" style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start" }}>
-                <span style={{ fontSize: "1.3rem" }}>✅</span>
+              <div key={i} className="neo-card" style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
+                <CheckCircle size={20} strokeWidth={2.5} style={{ flexShrink: 0, marginTop: "2px" }} />
                 <p style={{ fontWeight: 600 }}>{item}</p>
               </div>
             ))}
@@ -214,7 +231,9 @@ export default function ApplyPage() {
               className="neo-card neo-card--green"
               style={{ textAlign: "center", maxWidth: "600px" }}
             >
-              <div style={{ fontSize: "3rem", marginBottom: "1rem" }}>🎉</div>
+              <div style={{ marginBottom: "1rem", display: "flex", justifyContent: "center" }}>
+                <PartyPopper size={48} strokeWidth={2} />
+              </div>
               <h2 style={{ marginBottom: "1rem" }}>Application Received!</h2>
               <p style={{ marginBottom: "1.5rem" }}>
                 We&apos;ll review your application and get back to you with next
@@ -465,7 +484,9 @@ export default function ApplyPage() {
 
           <div className="grid-2">
             <div className="neo-card">
-              <h4>📞 Phone</h4>
+              <h4 style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                <Phone size={18} strokeWidth={2.5} /> Phone
+              </h4>
               <a
                 href="tel:+917990360056"
                 style={{ fontWeight: 700, fontSize: "1.1rem" }}
@@ -474,7 +495,9 @@ export default function ApplyPage() {
               </a>
             </div>
             <div className="neo-card">
-              <h4>📧 Email</h4>
+              <h4 style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}>
+                <Mail size={18} strokeWidth={2.5} /> Email
+              </h4>
               <a
                 href="mailto:contact@thecampus.company"
                 style={{ fontWeight: 700, fontSize: "1.1rem" }}
