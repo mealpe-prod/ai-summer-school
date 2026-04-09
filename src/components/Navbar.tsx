@@ -32,7 +32,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <Link href="/apply" className="neo-btn neo-btn--primary navbar__cta">
+        <Link href="/apply" className="neo-btn neo-btn--primary navbar__cta" style={{ padding: "0.6rem 1.5rem", fontSize: "0.8rem" }}>
           Apply Now
         </Link>
 
@@ -67,7 +67,7 @@ export default function Navbar() {
         <Link
           href="/apply"
           onClick={() => setMenuOpen(false)}
-          style={{ background: "var(--color-yellow)" }}
+          style={{ background: "var(--yellow)", color: "var(--black)" }}
         >
           Apply Now →
         </Link>

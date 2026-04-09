@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   Brain, PenLine, Globe, Palette, Video, BarChart2, Rocket,
-  Calendar, Mic, Wrench, Target, CheckCircle, GraduationCap
+  Calendar, Mic, Wrench, Target, CheckCircle, GraduationCap, ArrowRight
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -17,7 +17,6 @@ const days = [
     icon: <Brain size={22} strokeWidth={2.5} />,
     title: "The AI Mindset",
     subtitle: "Why thinking matters more than tools",
-    color: "var(--color-purple)",
     philosophy:
       "AI is powerful — but it's still just a tool. The real advantage comes from how you think, decide, and apply it.",
     learn: [
@@ -38,7 +37,6 @@ const days = [
     icon: <PenLine size={22} strokeWidth={2.5} />,
     title: "AI-Powered Writing",
     subtitle: "Content that connects and converts",
-    color: "var(--color-orange)",
     philosophy:
       "Writing is one of the most valuable skills today. AI makes you faster — but your thinking makes it powerful.",
     learn: [
@@ -59,7 +57,6 @@ const days = [
     icon: <Globe size={22} strokeWidth={2.5} />,
     title: "Websites & Apps",
     subtitle: "Build anything, no CS degree needed",
-    color: "var(--color-green)",
     philosophy:
       "You don't need to be a programmer to build online. AI + no-code tools = your entry into the internet economy.",
     learn: [
@@ -79,7 +76,6 @@ const days = [
     icon: <Palette size={22} strokeWidth={2.5} />,
     title: "Visual Design & AI Art",
     subtitle: "From ideas to stunning visuals",
-    color: "var(--color-yellow)",
     philosophy: "When everyone has AI, taste becomes your advantage.",
     learn: [
       "Design fundamentals (color, typography, composition)",
@@ -99,7 +95,6 @@ const days = [
     icon: <Video size={22} strokeWidth={2.5} />,
     title: "Video & Audio Production",
     subtitle: "Create content people can't scroll past",
-    color: "var(--color-blue)",
     philosophy:
       "Video is the most powerful format on the internet. If you can create content, you can build influence.",
     learn: [
@@ -120,7 +115,6 @@ const days = [
     icon: <BarChart2 size={22} strokeWidth={2.5} />,
     title: "Data, Automation & Business",
     subtitle: "Turn skills into income",
-    color: "var(--color-purple)",
     philosophy: "Skills alone are not enough. You need to package and monetize them.",
     learn: [
       "Using spreadsheets with AI",
@@ -141,7 +135,6 @@ const days = [
     icon: <Rocket size={22} strokeWidth={2.5} />,
     title: "Graduation & Career Roadmap",
     subtitle: "Your roadmap to winning the market",
-    color: "var(--color-orange)",
     philosophy: "Skills are step one. Direction is what creates success.",
     learn: [
       "The 4 pillars: Skills, Network, Portfolio, Mindset",
@@ -161,48 +154,48 @@ export default function CurriculumPage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="neo-section neo-section--orange" id="curriculum-hero">
-        <div className="container page-hero">
-          <span className="neo-badge neo-badge--yellow">Curriculum</span>
-          <h1 style={{ marginTop: "1.5rem" }}>
+      <section
+        className="neo-section neo-section--dark"
+        id="curriculum-hero"
+        style={{ paddingTop: "5rem", paddingBottom: "4rem" }}
+      >
+        <div className="container">
+          <span className="neo-badge neo-badge--yellow" style={{ marginBottom: "1.5rem", display: "inline-block" }}>
+            <Calendar size={14} strokeWidth={2.5} /> Curriculum
+          </span>
+          <h1 style={{ color: "var(--white)", marginBottom: "1.5rem" }}>
             7 Days. 13 Experts.
             <br />
-            One Week That Changes How You Think.
+            <span style={{ color: "var(--yellow)" }}>One transformative week.</span>
           </h1>
-          <p className="text-large" style={{ marginTop: "1.25rem" }}>
+          <p style={{ fontSize: "1.2rem", color: "var(--text-muted-light)", maxWidth: "600px", marginBottom: "2.5rem" }}>
             This is not a syllabus. This is a step-by-step journey from
             learning → building → earning.
           </p>
-          <div className="page-hero__meta">
-            <span className="neo-badge" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
-              <Calendar size={14} strokeWidth={2.5} /> 7 Days, structured
+
+          <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", marginBottom: "2.5rem" }}>
+            <span className="neo-badge" style={{ background: "transparent", borderColor: "rgba(255,255,255,0.2)", color: "var(--white)", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+              <Mic size={13} strokeWidth={2.5} /> 13 industry experts
             </span>
-            <span className="neo-badge" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
-              <Mic size={14} strokeWidth={2.5} /> 13 industry experts
+            <span className="neo-badge" style={{ background: "transparent", borderColor: "rgba(255,255,255,0.2)", color: "var(--white)", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+              <Wrench size={13} strokeWidth={2.5} /> Daily hands-on builds
             </span>
-            <span className="neo-badge" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
-              <Wrench size={14} strokeWidth={2.5} /> Daily hands-on builds
-            </span>
-            <span className="neo-badge" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
-              <Target size={14} strokeWidth={2.5} /> Portfolio-first
+            <span className="neo-badge" style={{ background: "transparent", borderColor: "rgba(255,255,255,0.2)", color: "var(--white)", display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+              <Target size={13} strokeWidth={2.5} /> Portfolio-first
             </span>
           </div>
-          <div className="page-hero__cta">
-            <Link href="/apply" className="neo-btn neo-btn--dark neo-btn--large">
-              Apply Now →
-            </Link>
-          </div>
+
+          <Link href="/apply" className="neo-btn neo-btn--primary neo-btn--large">
+            Apply Now →
+          </Link>
         </div>
       </section>
 
       {/* ===== HOW IT WORKS ===== */}
-      <section className="neo-section neo-section--white reveal" id="how-it-works">
+      <section className="neo-section neo-section--yellow reveal" id="how-it-works" style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
         <div className="container" style={{ textAlign: "center" }}>
-          <h2 style={{ marginBottom: "1.5rem" }}>How the Curriculum Works</h2>
-          <p
-            className="text-large mx-auto"
-            style={{ marginBottom: "2rem", maxWidth: "600px" }}
-          >
+          <h2 style={{ marginBottom: "0.75rem" }}>How the Curriculum Works</h2>
+          <p className="text-large mx-auto" style={{ maxWidth: "600px" }}>
             You don&apos;t just learn something new each day — you build
             something real every day.
           </p>
@@ -215,7 +208,7 @@ export default function CurriculumPage() {
           key={day.day}
           className="neo-section reveal"
           style={{
-            background: day.day % 2 === 0 ? "var(--color-off-white)" : "var(--color-white)",
+            background: day.day % 2 === 0 ? "var(--cream)" : "var(--white)",
           }}
           id={`day-${day.day}`}
         >
@@ -223,39 +216,40 @@ export default function CurriculumPage() {
             <div className="day-card" style={{ overflow: "visible" }}>
               <div
                 className="day-card__header"
-                style={{ background: day.color }}
+                style={{
+                  background: day.day % 2 === 0 ? "var(--yellow)" : "var(--black)",
+                  color: day.day % 2 === 0 ? "var(--black)" : "var(--white)",
+                }}
               >
                 <div className="day-card__number" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
                   {day.icon} Day {day.day}
                 </div>
                 <div>
                   <div className="day-card__title">{day.title}</div>
-                  <div className="day-card__subtitle">{day.subtitle}</div>
+                  <div className="day-card__subtitle" style={{
+                    color: day.day % 2 === 0 ? "rgba(0,0,0,0.6)" : "rgba(255,255,255,0.6)",
+                  }}>{day.subtitle}</div>
                 </div>
               </div>
 
               <div className="day-card__body">
+                {/* Philosophy quote */}
                 <div
-                  className="neo-card"
                   style={{
-                    background: day.color,
+                    borderLeft: "4px solid var(--orange)",
+                    padding: "1rem 1.25rem",
                     marginBottom: "1.5rem",
-                    opacity: 0.85,
+                    background: "var(--cream)",
                   }}
                 >
-                  <p style={{ fontWeight: 600, fontStyle: "italic" }}>
+                  <p style={{ fontWeight: 600, fontStyle: "italic", fontSize: "0.95rem" }}>
                     &quot;{day.philosophy}&quot;
                   </p>
                 </div>
 
-                <div
-                  className="grid-2"
-                  style={{ gap: "1.5rem" }}
-                >
+                <div className="grid-2" style={{ gap: "1.5rem" }}>
                   <div className="day-card__section">
-                    <div className="day-card__section-title">
-                      What You&apos;ll Learn
-                    </div>
+                    <div className="day-card__section-title">What You&apos;ll Learn</div>
                     <ul className="day-card__list">
                       {day.learn.map((item, i) => (
                         <li key={i}>{item}</li>
@@ -264,9 +258,7 @@ export default function CurriculumPage() {
                   </div>
 
                   <div className="day-card__section">
-                    <div className="day-card__section-title">
-                      What You&apos;ll Build
-                    </div>
+                    <div className="day-card__section-title">What You&apos;ll Build</div>
                     <ul className="day-card__list">
                       {day.build.map((item, i) => (
                         <li key={i}>{item}</li>
@@ -280,9 +272,7 @@ export default function CurriculumPage() {
                     <div className="day-card__section-title">Tools</div>
                     <div className="day-card__tools">
                       {day.tools.map((tool, i) => (
-                        <span key={i} className="day-card__tool">
-                          {tool}
-                        </span>
+                        <span key={i} className="day-card__tool">{tool}</span>
                       ))}
                     </div>
                   </div>
@@ -294,13 +284,13 @@ export default function CurriculumPage() {
       ))}
 
       {/* ===== GRADUATE WITH ===== */}
-      <section className="neo-section neo-section--green reveal" id="graduate">
+      <section className="neo-section neo-section--dark reveal" id="graduate">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge section-header__tag" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
+            <span className="neo-badge neo-badge--yellow section-header__tag" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem" }}>
               <GraduationCap size={15} strokeWidth={2.5} /> Graduation
             </span>
-            <h2>What You Graduate With</h2>
+            <h2 style={{ color: "var(--white)" }}>What You Graduate With</h2>
           </div>
 
           <div className="grid-3">
@@ -312,8 +302,8 @@ export default function CurriculumPage() {
               "Certificate + network",
             ].map((item, i) => (
               <div key={i} className="neo-card" style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
-                <CheckCircle size={20} strokeWidth={2.5} style={{ flexShrink: 0, color: "var(--color-black)" }} />
-                <p style={{ fontWeight: 600 }}>{item}</p>
+                <CheckCircle size={20} strokeWidth={2.5} style={{ flexShrink: 0, color: "var(--orange)" }} />
+                <p style={{ fontWeight: 700 }}>{item}</p>
               </div>
             ))}
           </div>
@@ -324,10 +314,10 @@ export default function CurriculumPage() {
       <section
         className="neo-section neo-section--yellow"
         id="curriculum-cta"
-        style={{ textAlign: "center" }}
+        style={{ textAlign: "center", paddingTop: "5rem", paddingBottom: "5rem" }}
       >
         <div className="container">
-          <h2 style={{ marginBottom: "1rem" }}>
+          <h2 style={{ marginBottom: "1.5rem" }}>
             This is not just a curriculum. It&apos;s a launchpad.
           </h2>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "2rem" }}>

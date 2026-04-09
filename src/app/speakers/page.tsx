@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   Briefcase, Palette, Bot, Mic, Zap, Handshake, Target,
-  Monitor, BarChart2, Megaphone
+  Monitor, BarChart2, Megaphone, ArrowRight
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -15,88 +15,68 @@ export default function SpeakersPage() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="neo-section neo-section--blue" id="speakers-hero">
-        <div className="container page-hero">
-          <span className="neo-badge neo-badge--yellow">Speakers</span>
-          <h1 style={{ marginTop: "1.5rem" }}>
+      <section
+        className="neo-section neo-section--dark"
+        id="speakers-hero"
+        style={{ paddingTop: "5rem", paddingBottom: "4rem" }}
+      >
+        <div className="container">
+          <span className="neo-badge neo-badge--yellow" style={{ marginBottom: "1.5rem", display: "inline-block" }}>
+            <Mic size={14} strokeWidth={2.5} /> Speakers
+          </span>
+          <h1 style={{ color: "var(--white)", marginBottom: "1.5rem" }}>
             Learn from people who are
             <br />
-            <span style={{ color: "var(--color-orange)" }}>
-              building, not just teaching.
-            </span>
+            <span style={{ color: "var(--yellow)" }}>building, not just teaching.</span>
           </h1>
-          <p className="text-large" style={{ marginTop: "1.25rem" }}>
+          <p style={{ fontSize: "1.2rem", color: "var(--text-muted-light)", maxWidth: "600px", marginBottom: "2.5rem" }}>
             13 industry experts. Operators, creators, and professionals working
             at the forefront of AI, content, design, and business.
           </p>
-          <div
-            className="neo-badge neo-badge--orange"
-            style={{ marginTop: "1.5rem", fontSize: "1rem", padding: "0.5rem 1.25rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
-          >
+          <div className="neo-badge neo-badge--orange" style={{ fontSize: "0.85rem", padding: "0.5rem 1.25rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
             <Megaphone size={16} strokeWidth={2.5} /> Speaker lineup coming soon
           </div>
         </div>
       </section>
 
       {/* ===== WHY SPEAKERS MATTER ===== */}
-      <section className="neo-section neo-section--white reveal" id="why-speakers">
+      <section className="neo-section neo-section--cream reveal" id="why-speakers">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge neo-badge--purple section-header__tag">
-              Why It Matters
-            </span>
+            <span className="neo-badge section-header__tag">Why It Matters</span>
             <h2>Why Speakers Matter</h2>
           </div>
 
           <p className="text-large" style={{ marginBottom: "2rem" }}>
-            At AI Summer School, you don&apos;t learn from traditional
-            lecturers. You learn from:
+            At AI Summer School, you don&apos;t learn from traditional lecturers. You learn from:
           </p>
 
           <div className="grid-3">
             {[
-              {
-                icon: <Briefcase size={36} strokeWidth={2} />,
-                text: "People actively working in the industry",
-                color: "neo-card--orange",
-              },
-              {
-                icon: <Palette size={36} strokeWidth={2} />,
-                text: "Creators building real projects",
-                color: "neo-card--green",
-              },
-              {
-                icon: <Bot size={36} strokeWidth={2} />,
-                text: "Professionals using AI in real-world scenarios",
-                color: "neo-card--blue",
-              },
+              { icon: Briefcase, text: "People actively working in the industry" },
+              { icon: Palette, text: "Creators building real projects" },
+              { icon: Bot, text: "Professionals using AI in real-world scenarios" },
             ].map((item, i) => (
-              <div key={i} className={`neo-card ${item.color}`} style={{ textAlign: "center" }}>
-                <div style={{ marginBottom: "0.75rem", display: "flex", justifyContent: "center" }}>
-                  {item.icon}
+              <div key={i} className="neo-card" style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+                <div style={{ width: "48px", height: "48px", background: "var(--black)", border: "var(--border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <item.icon size={22} strokeWidth={2.5} style={{ color: "var(--yellow)" }} />
                 </div>
                 <h4>{item.text}</h4>
               </div>
             ))}
           </div>
 
-          <div
-            className="neo-card neo-card--yellow"
-            style={{ marginTop: "2rem", textAlign: "center" }}
-          >
+          <div className="neo-card neo-card--yellow" style={{ marginTop: "2rem", textAlign: "center" }}>
             <h3>
               You don&apos;t learn what works in theory. You learn{" "}
-              <span style={{ textDecoration: "underline" }}>
-                what actually works in practice
-              </span>
-              .
+              <span style={{ textDecoration: "underline" }}>what actually works in practice</span>.
             </h3>
           </div>
         </div>
       </section>
 
       {/* ===== WHAT TO EXPECT ===== */}
-      <section className="neo-section neo-section--purple reveal" id="expect">
+      <section className="neo-section neo-section--white reveal" id="expect">
         <div className="container">
           <div className="section-header">
             <span className="neo-badge section-header__tag">Sessions</span>
@@ -115,25 +95,26 @@ export default function SpeakersPage() {
                   "Video and media production",
                   "Freelancing, business, and personal branding",
                 ].map((item, i) => (
-                  <div key={i} className="neo-card" style={{ padding: "0.75rem 1rem" }}>
-                    <p style={{ fontWeight: 600 }}>→ {item}</p>
+                  <div key={i} style={{ display: "flex", gap: "0.6rem", alignItems: "flex-start" }}>
+                    <ArrowRight size={16} strokeWidth={3} style={{ flexShrink: 0, marginTop: "4px", color: "var(--orange)" }} />
+                    <p style={{ fontWeight: 600 }}>{item}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="neo-card neo-card--green">
-              <h3 style={{ marginBottom: "1rem" }}>
-                Each session is designed to be:
-              </h3>
+            <div className="neo-card" style={{ borderLeft: "6px solid var(--orange)" }}>
+              <h3 style={{ marginBottom: "1.25rem" }}>Each session is designed to be:</h3>
               <ul style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {[
-                  { icon: <Zap size={22} strokeWidth={2.5} />, label: "Practical" },
-                  { icon: <Handshake size={22} strokeWidth={2.5} />, label: "Interactive" },
-                  { icon: <Target size={22} strokeWidth={2.5} />, label: "Action-oriented" },
+                  { icon: Zap, label: "Practical" },
+                  { icon: Handshake, label: "Interactive" },
+                  { icon: Target, label: "Action-oriented" },
                 ].map((item, i) => (
                   <li key={i} style={{ display: "flex", gap: "0.75rem", alignItems: "center", fontWeight: 700, fontSize: "1.1rem" }}>
-                    {item.icon}
+                    <div style={{ width: "36px", height: "36px", background: "var(--yellow)", border: "var(--border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <item.icon size={18} strokeWidth={2.5} />
+                    </div>
                     {item.label}
                   </li>
                 ))}
@@ -144,49 +125,31 @@ export default function SpeakersPage() {
       </section>
 
       {/* ===== FORMAT ===== */}
-      <section className="neo-section neo-section--white reveal" id="format">
+      <section className="neo-section neo-section--cream reveal" id="format">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge neo-badge--orange section-header__tag">
-              Format
-            </span>
+            <span className="neo-badge neo-badge--orange section-header__tag">Format</span>
             <h2>Speaker Format</h2>
           </div>
 
           <div className="grid-4">
             {[
-              { content: <span style={{ fontSize: "2rem", fontWeight: 900, lineHeight: 1 }}>2</span>, label: "Expert-led sessions per day" },
-              { content: <span style={{ fontSize: "2rem", fontWeight: 900, lineHeight: 1 }}>13</span>, label: "Speakers across 7 days" },
-              { content: <Monitor size={36} strokeWidth={2} />, label: "Hands-on demonstrations" },
-              { content: <BarChart2 size={36} strokeWidth={2} />, label: "Real examples & case studies" },
+              { num: "2", label: "Expert-led sessions per day" },
+              { num: "13", label: "Speakers across 7 days" },
+              { icon: Monitor, label: "Hands-on demonstrations" },
+              { icon: BarChart2, label: "Real examples & case studies" },
             ].map((item, i) => (
               <div key={i} className="neo-card" style={{ textAlign: "center" }}>
-                <div style={{ marginBottom: "0.5rem", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  {item.content}
+                <div style={{ marginBottom: "0.75rem", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  {"num" in item ? (
+                    <span style={{ fontSize: "2.5rem", fontWeight: 900, lineHeight: 1, color: "var(--orange)" }}>{item.num}</span>
+                  ) : (
+                    item.icon && <item.icon size={32} strokeWidth={2} />
+                  )}
                 </div>
-                <p style={{ fontWeight: 600, fontSize: "0.9rem" }}>
-                  {item.label}
-                </p>
+                <p style={{ fontWeight: 600, fontSize: "0.9rem" }}>{item.label}</p>
               </div>
             ))}
-          </div>
-
-          <div
-            className="neo-card"
-            style={{
-              marginTop: "2rem",
-              textAlign: "center",
-              background: "var(--color-black)",
-              color: "white",
-            }}
-          >
-            <h3>
-              You&apos;ll learn directly from people{" "}
-              <span style={{ color: "var(--color-yellow)" }}>
-                doing the work
-              </span>
-              .
-            </h3>
           </div>
         </div>
       </section>
@@ -201,24 +164,17 @@ export default function SpeakersPage() {
             We&apos;re curating a lineup of industry professionals, startup
             operators, creators, freelancers, and AI practitioners.
           </p>
-          <p className="text-large" style={{ fontWeight: 700, marginBottom: "2rem", maxWidth: "100%" }}>
-            Stay tuned — full speaker lineup will be revealed soon.
-          </p>
 
           <div
-            className="neo-card neo-card--blue"
-            style={{
-              maxWidth: "500px",
-              margin: "0 auto",
-              textAlign: "center",
-            }}
+            className="neo-card"
+            style={{ maxWidth: "500px", margin: "0 auto", textAlign: "center" }}
           >
             <h3 style={{ marginBottom: "1rem" }}>Want Early Access?</h3>
             <p style={{ marginBottom: "1.5rem" }}>
               Be the first to know when speakers are announced. Apply now and
               secure your seat before the lineup goes live.
             </p>
-            <Link href="/apply" className="neo-btn neo-btn--primary">
+            <Link href="/apply" className="neo-btn neo-btn--dark">
               Apply Now →
             </Link>
           </div>
@@ -226,23 +182,19 @@ export default function SpeakersPage() {
       </section>
 
       {/* ===== FINAL CTA ===== */}
-      <section
-        className="neo-section neo-section--blue"
-        id="speakers-cta"
-        style={{ textAlign: "center" }}
-      >
+      <section className="neo-section neo-section--dark" id="speakers-cta" style={{ textAlign: "center" }}>
         <div className="container">
-          <h2 style={{ color: "var(--color-black)", marginBottom: "1rem" }}>
+          <h2 style={{ color: "var(--white)", marginBottom: "1.5rem" }}>
             Don&apos;t wait for the lineup.
             <br />
-            The outcome is what matters.
+            The <span style={{ color: "var(--yellow)" }}>outcome</span> is what matters.
           </h2>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "2rem" }}>
-            <span className="neo-badge neo-badge--green">Real Skills</span>
+            <span className="neo-badge neo-badge--yellow">Real Skills</span>
             <span className="neo-badge neo-badge--orange">Real Projects</span>
-            <span className="neo-badge neo-badge--yellow">Real Direction</span>
+            <span className="neo-badge">Real Direction</span>
           </div>
-          <Link href="/apply" className="neo-btn neo-btn--dark neo-btn--large">
+          <Link href="/apply" className="neo-btn neo-btn--primary neo-btn--large">
             Apply Now →
           </Link>
         </div>

@@ -21,7 +21,7 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="neo-section" style={{ background: "var(--color-off-white)" }} id="terms-content">
+      <section className="neo-section" style={{ background: "var(--cream)" }} id="terms-content">
         <div className="container" style={{ maxWidth: "800px" }}>
           <p style={{ marginBottom: "2rem" }}>
             Welcome to <strong>AI Summer School 2026</strong>, organized by{" "}

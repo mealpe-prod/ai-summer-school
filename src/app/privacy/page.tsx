@@ -21,7 +21,7 @@ export default function PrivacyPage() {
         </div>
       </section>
 
-      <section className="neo-section" style={{ background: "var(--color-off-white)" }} id="privacy-content">
+      <section className="neo-section" style={{ background: "var(--cream)" }} id="privacy-content">
         <div className="container" style={{ maxWidth: "800px" }}>
           <p style={{ marginBottom: "2rem" }}>
             This Privacy Policy explains how{" "}

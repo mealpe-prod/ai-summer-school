@@ -17,7 +17,7 @@ function FAQGroup({ items, offset = 0 }: { items: FAQItem[]; offset?: number }) 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <div style={{ borderTop: "2px solid var(--color-black)" }}>
+    <div style={{ borderTop: "2px solid var(--black)" }}>
       {items.map((item, i) => {
         const idx = offset + i;
         const isOpen = activeIndex === i;
@@ -25,8 +25,8 @@ function FAQGroup({ items, offset = 0 }: { items: FAQItem[]; offset?: number }) 
           <div
             key={idx}
             style={{
-              borderBottom: "2px solid var(--color-black)",
-              background: isOpen ? "var(--color-yellow)" : "transparent",
+              borderBottom: "2px solid var(--black)",
+              background: isOpen ? "var(--yellow)" : "transparent",
               transition: "background 0.15s",
             }}
           >
@@ -53,7 +53,7 @@ function FAQGroup({ items, offset = 0 }: { items: FAQItem[]; offset?: number }) 
                   fontWeight: 700,
                   fontSize: "0.92rem",
                   lineHeight: 1.45,
-                  color: "var(--color-black)",
+                  color: "var(--black)",
                 }}
               >
                 {item.question}
@@ -67,9 +67,9 @@ function FAQGroup({ items, offset = 0 }: { items: FAQItem[]; offset?: number }) 
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  border: "2px solid var(--color-black)",
-                  background: isOpen ? "var(--color-orange)" : "transparent",
-                  color: isOpen ? "var(--color-white)" : "var(--color-black)",
+                  border: "2px solid var(--black)",
+                  background: isOpen ? "var(--orange)" : "transparent",
+                  color: isOpen ? "var(--white)" : "var(--black)",
                   fontSize: "1.1rem",
                   fontWeight: 900,
                   lineHeight: 1,
@@ -124,15 +124,15 @@ export default function FAQ({ categories }: { categories: FAQCategory[] }) {
           <div className="neo-badge"
             style={{
               display: "inline-block",
-              border: "2px solid var(--color-black)",
+              border: "2px solid var(--black)",
               padding: "0.5rem 0.75rem",
               marginBottom: "1.2rem",
               fontSize: "0.9rem",
               fontWeight: 800,
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              color: "var(--color-black)",
-              background: "var(--color-yellow)",
+              color: "var(--black)",
+              background: "var(--yellow)",
             }}
           >
             {cat.label}

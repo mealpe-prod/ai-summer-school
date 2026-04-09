@@ -2,7 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import {
   Calendar, Users, MapPin, Target, Palette, FolderOpen, Coins,
-  Bot, Clock, X, Check, Globe, PenTool, Video, Briefcase, ArrowRight
+  Bot, Clock, X, Check, Globe, PenTool, Video, Briefcase, ArrowRight,
+  Brain, Zap, Coffee, Wrench, MessageSquare
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -16,287 +17,83 @@ export default function ProgramPage() {
     <>
       {/* ===== HERO ===== */}
       <section
+        className="neo-section neo-section--dark"
         id="program-hero"
-        style={{
-          background: "var(--color-off-white)",
-          borderBottom: "var(--border)",
-          padding: 0,
-          overflow: "hidden",
-        }}
+        style={{ paddingTop: "5rem", paddingBottom: "4rem" }}
       >
-        {/* Top strip
-        <div
-          style={{
-            background: "var(--color-black)",
-            color: "var(--color-yellow)",
-            padding: "0.6rem 0",
-            textAlign: "center",
-            fontWeight: 900,
-            fontSize: "0.8rem",
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            borderBottom: "var(--border)",
-          }}
-        >
-          ★ &nbsp; Summer 2026 · Ahmedabad · Ages 15–24 &nbsp; ★ &nbsp;
-          Limited Seats Available &nbsp; ★ &nbsp; Application Open Now &nbsp; ★
-        </div> */}
-
-        <div className="container" style={{ padding: "4rem 1.5rem 0" }}>
-          {/* Full-width heading — above the grid */}
+        <div className="container">
           <span
-            className="neo-badge neo-badge--orange"
+            className="neo-badge neo-badge--yellow"
             style={{ marginBottom: "1.5rem", display: "inline-block" }}
           >
             The Program
           </span>
 
-          <h1
-            style={{
-              fontSize: "clamp(2.5rem, 5vw, 4rem)",
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-              textTransform: "uppercase",
-              marginTop: "1rem",
-              marginBottom: "2.5rem",
-            }}
-          >
+          <h1 style={{ marginBottom: "2rem", color: "var(--white)" }}>
             Not a course.
             <br />
-            <span
-              style={{
-                color: "var(--color-orange)",
-                whiteSpace: "nowrap",
-              }}
-            >
-              A 7-day transformation.
-            </span>
+            <span style={{ color: "var(--yellow)" }}>A 7-day transformation.</span>
           </h1>
 
-          {/* Two-column: copy+CTA / stat blocks */}
+          <p style={{ fontSize: "1.2rem", color: "var(--text-muted-light)", maxWidth: "600px", marginBottom: "2.5rem", fontWeight: 500 }}>
+            7 days of hands-on building. Real projects. Real experts. Real
+            skills that schools don&apos;t teach — and employers actually want.
+          </p>
+
+          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginBottom: "3rem" }}>
+            <Link href="/apply" className="neo-btn neo-btn--primary neo-btn--large">
+              Apply Now →
+            </Link>
+            <Link href="/curriculum" className="neo-btn neo-btn--ghost neo-btn--large">
+              View Curriculum
+            </Link>
+          </div>
+
+          {/* Stats strip */}
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "1fr",
-              gap: "2.5rem",
-              alignItems: "start",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              maxWidth: "700px",
             }}
-            className="program-hero-grid"
           >
-            {/* LEFT — copy + CTA */}
-            <div style={{ minWidth: 0 }}>
-              <p
-                style={{
-                  fontSize: "1.15rem",
-                  lineHeight: 1.7,
-                  maxWidth: "520px",
-                  marginBottom: "2rem",
-                  fontWeight: 500,
-                }}
-              >
-                7 days of hands-on building. Real projects. Real experts. Real
-                skills that schools don&apos;t teach — and employers actually
-                want.
-              </p>
-
-              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <Link
-                  href="/apply"
-                  className="neo-btn neo-btn--dark neo-btn--large"
-                  style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}
-                >
-                  Apply Now →
-                </Link>
-                <Link
-                  href="/curriculum"
-                  className="neo-btn neo-btn--secondary neo-btn--large"
-                  style={{ fontSize: "1.1rem", padding: "1rem 2.5rem" }}
-                >
-                  View Curriculum
-                </Link>
-              </div>
-            </div>
-
-            {/* RIGHT — stat blocks */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: "0.5rem",
-              }}
-            >
+            {[
+              { num: "7", label: "Intensive Days", sub: "Build. Learn. Ship." },
+              { num: "13", label: "Industry Experts", sub: "Real practitioners" },
+              { num: "5+", label: "Real Projects", sub: "Portfolio ready" },
+            ].map((stat, i) => (
               <div
+                key={i}
                 style={{
-                  background: "var(--color-orange)",
-                  border: "var(--border)",
-                  boxShadow: "var(--shadow-md)",
                   padding: "1.5rem",
-                  gridColumn: "1 / -1",
+                  borderRight: i < 2 ? "2px solid rgba(255,255,255,0.1)" : "none",
                 }}
               >
-                <div
-                  style={{
-                    fontSize: "clamp(3rem, 7vw, 5rem)",
-                    fontWeight: 900,
-                    lineHeight: 1,
-                    color: "var(--color-white)",
-                  }}
-                >
-                  7
+                <div style={{ fontSize: "2.5rem", fontWeight: 900, color: "var(--yellow)", lineHeight: 1 }}>
+                  {stat.num}
                 </div>
-                <div
-                  style={{
-                    fontWeight: 800,
-                    fontSize: "1.1rem",
-                    color: "var(--color-white)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.06em",
-                    marginTop: "0.25rem",
-                  }}
-                >
-                  Intensive Days
+                <div style={{ fontWeight: 800, fontSize: "0.8rem", color: "var(--white)", textTransform: "uppercase", letterSpacing: "0.06em", marginTop: "0.35rem" }}>
+                  {stat.label}
                 </div>
-                <div
-                  style={{
-                    fontSize: "0.85rem",
-                    color: "rgba(255,255,255,0.75)",
-                    marginTop: "0.25rem",
-                    fontWeight: 500,
-                  }}
-                >
-                  Build. Learn. Ship — every single day.
+                <div style={{ fontSize: "0.75rem", color: "var(--text-muted-light)", marginTop: "0.15rem", fontWeight: 500 }}>
+                  {stat.sub}
                 </div>
               </div>
-
-              <div
-                style={{
-                  background: "var(--color-yellow)",
-                  border: "var(--border)",
-                  boxShadow: "var(--shadow-md)",
-                  padding: "1.5rem",
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                    fontWeight: 900,
-                    lineHeight: 1,
-                    color: "var(--color-black)",
-                  }}
-                >
-                  13
-                </div>
-                <div
-                  style={{
-                    fontWeight: 800,
-                    fontSize: "0.95rem",
-                    color: "var(--color-black)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                    marginTop: "0.25rem",
-                  }}
-                >
-                  Industry Experts
-                </div>
-              </div>
-
-              <div
-                style={{
-                  background: "var(--color-black)",
-                  border: "var(--border)",
-                  boxShadow: "var(--shadow-md)",
-                  padding: "1.5rem",
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                    fontWeight: 900,
-                    lineHeight: 1,
-                    color: "var(--color-yellow)",
-                  }}
-                >
-                  5+
-                </div>
-                <div
-                  style={{
-                    fontWeight: 800,
-                    fontSize: "0.95rem",
-                    color: "var(--color-white)",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.05em",
-                    marginTop: "0.25rem",
-                  }}
-                >
-                  Real Projects
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
-        </div>
-
-        {/* Bottom pillar strip */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            marginTop: "3rem",
-            borderTop: "var(--border)",
-          }}
-        >
-          {[
-            { icon: <Target size={22} strokeWidth={3} />, label: "Build-First Learning", sub: "Every day ends with something created" },
-            { icon: <Bot size={22} strokeWidth={3} />, label: "13 Expert Mentors", sub: "Real practitioners, not just teachers" },
-            { icon: <MapPin size={22} strokeWidth={3} />, label: "AMA, Ahmedabad", sub: "In-person · Immersive · Intensive" },
-          ].map((item, i) => (
-            <div
-              key={i}
-              style={{
-                padding: "1.5rem",
-                borderRight: i < 2 ? "var(--border)" : "none",
-                display: "flex",
-                alignItems: "flex-start",
-                gap: "0.75rem",
-              }}
-            >
-              <span
-                style={{
-                  background: "var(--color-orange)",
-                  color: "var(--color-white)",
-                  border: "2px solid var(--color-black)",
-                  padding: "0.4rem",
-                  display: "flex",
-                  flexShrink: 0,
-                }}
-              >
-                {item.icon}
-              </span>
-              <div>
-                <div style={{ fontWeight: 800, fontSize: "0.95rem", textTransform: "uppercase", letterSpacing: "0.03em" }}>
-                  {item.label}
-                </div>
-                <div style={{ fontSize: "0.8rem", color: "rgba(0,0,0,0.6)", marginTop: "0.15rem", fontWeight: 500 }}>
-                  {item.sub}
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
       {/* ===== WHAT IS AI SUMMER SCHOOL ===== */}
-      <section className="neo-section neo-section--white reveal" id="what-is">
+      <section className="neo-section neo-section--cream reveal" id="what-is">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge neo-badge--blue section-header__tag">
-              What Is It
-            </span>
+            <span className="neo-badge section-header__tag">What Is It</span>
             <h2>What is AI Summer School?</h2>
           </div>
 
           <p className="text-large" style={{ marginBottom: "2rem" }}>
-            AI Summer School is a 7-day, build-first learning experience where
-            students learn how to:
+            A 7-day, build-first learning experience where students learn how to:
           </p>
 
           <div className="grid-2">
@@ -306,69 +103,59 @@ export default function ProgramPage() {
               { icon: FolderOpen, text: "Build a portfolio of real projects" },
               { icon: Coins, text: "Turn skills into income" },
             ].map((item, i) => (
-              <div key={i} className="neo-card" style={{ display: "flex", gap: "0.75rem", alignItems: "center" }}>
-                <span><item.icon size={28} strokeWidth={2.5} /></span>
-                <p style={{ fontWeight: 600, fontSize: "1rem" }}>{item.text}</p>
+              <div key={i} className="neo-card" style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+                <div style={{ width: "48px", height: "48px", background: "var(--black)", border: "var(--border)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <item.icon size={22} strokeWidth={2.5} style={{ color: "var(--yellow)" }} />
+                </div>
+                <p style={{ fontWeight: 600, fontSize: "1.05rem" }}>{item.text}</p>
               </div>
             ))}
-          </div>
-
-          <div
-            className="neo-card neo-card--yellow"
-            style={{ marginTop: "2rem", textAlign: "center" }}
-          >
-            <h3>This is not about watching lectures. This is about learning by doing.</h3>
           </div>
         </div>
       </section>
 
       {/* ===== WHY THIS EXISTS ===== */}
-      <section className="neo-section neo-section--blue reveal" id="why">
+      <section className="neo-section neo-section--dark reveal" id="why">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge neo-badge--orange section-header__tag">
-              The Gap
-            </span>
-            <h2 style={{ color: "var(--color-black)" }}>Why This Program Exists</h2>
+            <span className="neo-badge neo-badge--orange section-header__tag">The Gap</span>
+            <h2 style={{ color: "var(--white)" }}>Why This Program Exists</h2>
           </div>
 
           <div className="grid-2" style={{ gap: "2rem" }}>
             <div className="neo-card">
-              <h3 style={{ marginBottom: "1rem" }}>Schools & colleges teach:</h3>
-              <ul style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                <li style={{ fontWeight: 600, paddingLeft: "1.75rem", position: "relative" }}>
-                  <span style={{ position: "absolute", left: 0, top: "2px" }}><X size={18} strokeWidth={3} /></span>Formulas
-                </li>
-                <li style={{ fontWeight: 600, paddingLeft: "1.75rem", position: "relative" }}>
-                  <span style={{ position: "absolute", left: 0, top: "2px" }}><X size={18} strokeWidth={3} /></span>Definitions
-                </li>
-                <li style={{ fontWeight: 600, paddingLeft: "1.75rem", position: "relative" }}>
-                  <span style={{ position: "absolute", left: 0, top: "2px" }}><X size={18} strokeWidth={3} /></span>Concepts
-                </li>
+              <h3 style={{ marginBottom: "1.25rem" }}>Schools & colleges teach:</h3>
+              <ul style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                {["Formulas", "Definitions", "Concepts"].map((text, i) => (
+                  <li key={i} style={{ fontWeight: 600, display: "flex", alignItems: "flex-start", gap: "0.5rem" }}>
+                    <X size={18} strokeWidth={3} style={{ flexShrink: 0, marginTop: "3px" }} />
+                    {text}
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="neo-card neo-card--orange">
-              <h3 style={{ marginBottom: "1rem" }}>But students struggle with:</h3>
-              <ul style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-                <li style={{ fontWeight: 600, display: "flex", alignItems: "flex-start", gap: "0.5rem" }}><X size={18} strokeWidth={3} style={{ flexShrink: 0, marginTop: "2px" }} /> Writing a compelling email</li>
-                <li style={{ fontWeight: 600, display: "flex", alignItems: "flex-start", gap: "0.5rem" }}><X size={18} strokeWidth={3} style={{ flexShrink: 0, marginTop: "2px" }} /> Building a website</li>
-                <li style={{ fontWeight: 600, display: "flex", alignItems: "flex-start", gap: "0.5rem" }}><X size={18} strokeWidth={3} style={{ flexShrink: 0, marginTop: "2px" }} /> Creating content</li>
-                <li style={{ fontWeight: 600, display: "flex", alignItems: "flex-start", gap: "0.5rem" }}><X size={18} strokeWidth={3} style={{ flexShrink: 0, marginTop: "2px" }} /> Understanding how to earn</li>
+            <div className="neo-card neo-card--dark">
+              <h3 style={{ marginBottom: "1.25rem", color: "var(--white)" }}>But students struggle with:</h3>
+              <ul style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                {[
+                  "Writing a compelling email",
+                  "Building a website",
+                  "Creating content",
+                  "Understanding how to earn",
+                ].map((text, i) => (
+                  <li key={i} style={{ fontWeight: 600, display: "flex", alignItems: "flex-start", gap: "0.5rem", color: "var(--white)" }}>
+                    <X size={18} strokeWidth={3} style={{ flexShrink: 0, marginTop: "3px", color: "var(--orange)" }} />
+                    {text}
+                  </li>
+                ))}
               </ul>
             </div>
-          </div>
-
-          <div
-            className="neo-card neo-card--purple"
-            style={{ marginTop: "2rem", textAlign: "center" }}
-          >
-            <h3>The result? Confusion. Lack of direction. Missed opportunities.</h3>
           </div>
         </div>
       </section>
 
       {/* ===== OUR APPROACH ===== */}
-      <section className="neo-section neo-section--purple reveal" id="approach">
+      <section className="neo-section neo-section--yellow reveal" id="approach">
         <div className="container">
           <div className="section-header">
             <span className="neo-badge section-header__tag">Our Approach</span>
@@ -376,94 +163,57 @@ export default function ProgramPage() {
           </div>
 
           <div className="grid-2" style={{ gap: "2rem" }}>
-            <div className="neo-card neo-card--orange" style={{ textAlign: "center" }}>
-              <p className="text-small" style={{ fontWeight: 700, marginBottom: "0.5rem" }}>
-                TRADITIONAL
-              </p>
-              <h3>NOT: Theory → Exam → Forget</h3>
+            <div className="neo-card" style={{ textAlign: "center" }}>
+              <p className="text-small" style={{ fontWeight: 800, marginBottom: "0.5rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>Traditional</p>
+              <h3>Theory → Exam → Forget</h3>
             </div>
-            <div className="neo-card neo-card--orange" style={{ textAlign: "center" }}>
-              <p className="text-small" style={{ fontWeight: 700, marginBottom: "0.5rem" }}>
-                OUR WAY
-              </p>
-              <h3>IS: Learn → Build → Apply</h3>
+            <div className="neo-card neo-card--dark" style={{ textAlign: "center" }}>
+              <p className="text-small" style={{ fontWeight: 800, marginBottom: "0.5rem", textTransform: "uppercase", letterSpacing: "0.06em", color: "var(--yellow)" }}>Our Way</p>
+              <h3 style={{ color: "var(--white)" }}>Learn → Build → Apply</h3>
             </div>
           </div>
 
-          <div style={{ marginTop: "2rem" }}>
-            <div className="grid-4">
-              {[
-                "Expert-led sessions",
-                "Hands-on workshops",
-                "Daily project creation",
-                "Portfolio building",
-              ].map((item, i) => (
-                <div key={i} className="neo-card" style={{ textAlign: "center" }}>
-                  <p style={{ fontWeight: 700, fontSize: "1.5rem", lineHeight: "1.5" }}>{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div
-            className="neo-card"
-            style={{
-              marginTop: "2rem",
-              textAlign: "center",
-              background: "var(--color-yellow)",
-              color: "var(--color-black)",
-            }}
-          >
-            <h3>
-              By the end, you don&apos;t just understand — you&apos;ve already{" "}
-              <span style={{ background: "var(--color-yellow)", padding: "0 0.4rem", border: "2px solid var(--color-black)", borderRadius: "var(--radius-sm)" }}>built</span>.
-            </h3>
+          <div className="grid-4" style={{ marginTop: "2rem" }}>
+            {["Expert-led sessions", "Hands-on workshops", "Daily project creation", "Portfolio building"].map((item, i) => (
+              <div key={i} className="neo-card" style={{ textAlign: "center" }}>
+                <p style={{ fontWeight: 700, fontSize: "1rem" }}>{item}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ===== WHAT MAKES THIS DIFFERENT ===== */}
-      <section className="neo-section neo-section--white reveal" id="different">
+      <section className="neo-section neo-section--cream reveal" id="different">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge neo-badge--purple section-header__tag">
-              The Difference
-            </span>
+            <span className="neo-badge section-header__tag">The Difference</span>
             <h2>What Makes This Different</h2>
           </div>
 
           <div className="grid-2" style={{ gap: "1.5rem" }}>
             {[
-              {
-                num: "01",
-                title: "Build-First Learning",
-                desc: "You don't just learn concepts. You create real outputs every day.",
-                color: "neo-card--blue",
-              },
-              {
-                num: "02",
-                title: "AI as a Tool, Not a Replacement",
-                desc: "We teach when to use AI, when to think yourself, and how to combine both effectively.",
-                color: "neo-card--yellow",
-              },
-              {
-                num: "03",
-                title: "Skills That Actually Matter",
-                desc: "Everything connects to real-world applications, career opportunities, and income potential.",
-                color: "neo-card--green",
-              },
-              {
-                num: "04",
-                title: "Portfolio > Certificate",
-                desc: "We give you projects, proof of work, and real skills — not just notes and certificates.",
-                color: "neo-card--orange",
-              },
+              { num: "01", title: "Build-First Learning", desc: "You don't just learn concepts. You create real outputs every day." },
+              { num: "02", title: "AI as a Tool, Not a Replacement", desc: "We teach when to use AI, when to think yourself, and how to combine both." },
+              { num: "03", title: "Skills That Actually Matter", desc: "Everything connects to real-world applications and income potential." },
+              { num: "04", title: "Portfolio > Certificate", desc: "We give you projects, proof of work, and real skills — not just paper." },
             ].map((item, i) => (
-              <div key={i} className={`neo-card ${item.color}`}>
-                <span
-                  className="neo-tag"
-                  style={{ marginBottom: "0.75rem", display: "inline-block" }}
-                >
+              <div
+                key={i}
+                className="neo-card"
+                style={{ borderLeft: "6px solid var(--orange)" }}
+              >
+                <span style={{
+                  display: "inline-block",
+                  fontWeight: 900,
+                  fontSize: "0.7rem",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.06em",
+                  padding: "0.3rem 0.7rem",
+                  border: "2px solid var(--black)",
+                  background: "var(--yellow)",
+                  marginBottom: "0.75rem",
+                }}>
                   {item.num}
                 </span>
                 <h3 style={{ marginBottom: "0.5rem" }}>{item.title}</h3>
@@ -475,42 +225,58 @@ export default function ProgramPage() {
       </section>
 
       {/* ===== DAILY EXPERIENCE ===== */}
-      <section className="neo-section neo-section--blue reveal" id="daily">
+      <section className="neo-section neo-section--dark reveal" id="daily" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="container">
-          <div className="section-header">
-            <span className="neo-badge section-header__tag">Daily Flow</span>
-            <h2>A typical day looks like:</h2>
+          <div className="daily-flow__header">
+            <div>
+              <span className="neo-badge neo-badge--yellow" style={{ marginBottom: "1rem", display: "inline-block" }}>Daily Flow</span>
+              <h2 style={{ color: "var(--white)", margin: 0 }}>A day at AI Summer School</h2>
+            </div>
+            <p style={{ color: "rgba(255,255,255,0.5)", fontWeight: 500, maxWidth: "320px", textAlign: "right", fontSize: "0.95rem" }}>
+              Every session is hands-on. Every day ends with something you built.
+            </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem", maxWidth: "600px" }}>
+          {/* Horizontal schedule strip */}
+          <div className="daily-flow__grid">
             {[
-              { icon: "01", time: "Morning 1", title: "Concept + live demonstrations", dur: "1.5 hrs" },
-              { icon: "02", time: "Morning 2", title: "Advanced applications + use cases", dur: "1.5 hrs" },
-              { icon: "03", time: "Lunch", title: "Break & networking", dur: "" },
-              { icon: "04", time: "Workshop", title: "Build your own project", dur: "1.5 hrs" },
-              { icon: "05", time: "Reflection", title: "Polish your work + feedback", dur: "" },
+              { time: "9:00 – 10:30", label: "Session 1", title: "Masterclass", icon: <Brain size={22} strokeWidth={2.5} />, accent: "var(--yellow)" },
+              { time: "10:45 – 12:15", label: "Session 2", title: "Deep Dive", icon: <Zap size={22} strokeWidth={2.5} />, accent: "var(--orange)" },
+              { time: "12:15 – 1:15", label: "Lunch", title: "Break & Connect", icon: <Coffee size={22} strokeWidth={2.5} />, accent: "#555" },
+              { time: "1:15 – 2:45", label: "Workshop", title: "Build It", icon: <Wrench size={22} strokeWidth={2.5} />, accent: "var(--yellow)" },
+              { time: "2:45 – 3:30", label: "Debrief", title: "Show & Learn", icon: <MessageSquare size={22} strokeWidth={2.5} />, accent: "var(--orange)" },
             ].map((item, i) => (
-              <div key={i} className="neo-card" style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-                <span style={{ fontSize: "1.5rem", minWidth: "40px", fontWeight: 800 }}>{item.icon}</span>
-                <div>
-                  <h4>{item.time}</h4>
-                  <p className="text-small">{item.title}{item.dur && ` · ${item.dur}`}</p>
+              <div key={i} className="daily-flow__item" style={{ borderRight: i < 4 ? "2px solid rgba(255,255,255,0.1)" : "none" }}>
+                <div style={{ height: "4px", background: item.accent }} />
+                <div className="daily-flow__item-inner">
+                  <div style={{ width: "38px", height: "38px", background: item.accent, display: "flex", alignItems: "center", justifyContent: "center", color: item.accent === "var(--yellow)" ? "var(--black)" : "var(--white)" }}>
+                    {item.icon}
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.65rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.08em", color: item.accent, marginBottom: "0.25rem" }}>{item.label}</div>
+                    <div style={{ fontSize: "1rem", fontWeight: 800, color: "var(--white)", lineHeight: 1.2, marginBottom: "0.5rem" }}>{item.title}</div>
+                    <div style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.35)", fontWeight: 500 }}>{item.time}</div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+
+          <div className="daily-flow__footer">
+            <span className="neo-badge neo-badge--yellow">7 Days · 7 Topics · 5+ Projects</span>
+            <p style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.85rem", fontWeight: 500 }}>
+              Schedule repeats each day with a new theme.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* ===== WHAT YOU WILL LEARN ===== */}
-      <section className="neo-section neo-section--white reveal" id="learn">
+      {/* ===== SKILLS ===== */}
+      <section className="neo-section neo-section--cream reveal" id="learn">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge neo-badge--green section-header__tag">
-              Skills
-            </span>
+            <span className="neo-badge section-header__tag">Skills</span>
             <h2>What You Will Learn</h2>
-            <p>Across 7 days, you will gain skills in:</p>
           </div>
 
           <div className="grid-3">
@@ -523,8 +289,8 @@ export default function ProgramPage() {
               "Data, automation, and workflows",
               "Freelancing and personal branding",
             ].map((item, i) => (
-              <div key={i} className="neo-card" style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start" }}>
-                <span style={{ fontWeight: 900 }}>→</span>
+              <div key={i} className="neo-card" style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
+                <ArrowRight size={18} strokeWidth={3} style={{ flexShrink: 0, marginTop: "3px", color: "var(--orange)" }} />
                 <p style={{ fontWeight: 600 }}>{item}</p>
               </div>
             ))}
@@ -533,14 +299,14 @@ export default function ProgramPage() {
       </section>
 
       {/* ===== TOOLS ===== */}
-      <section className="neo-section neo-section--orange reveal" id="tools">
+      <section className="neo-section neo-section--dark reveal" id="tools">
         <div className="container">
           <div className="section-header">
-            <span className="neo-badge section-header__tag">Tools</span>
-            <h2>Tools & Platforms You&apos;ll Use</h2>
+            <span className="neo-badge neo-badge--yellow section-header__tag">Tools</span>
+            <h2 style={{ color: "var(--white)" }}>Tools & Platforms You&apos;ll Use</h2>
           </div>
 
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem" }}>
             {[
               "ChatGPT", "Claude", "Gemini", "Notion AI", "Grammarly",
               "Canva", "Midjourney", "DALL·E", "Webflow", "Framer",
@@ -549,27 +315,25 @@ export default function ProgramPage() {
             ].map((tool, i) => (
               <span
                 key={i}
-                className="neo-badge"
-                style={{ fontSize: "0.9rem", padding: "0.5rem 1rem" }}
+                style={{
+                  padding: "0.5rem 1rem",
+                  fontSize: "0.85rem",
+                  fontWeight: 700,
+                  border: "2px solid rgba(255,255,255,0.2)",
+                  color: "var(--white)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.04em",
+                }}
               >
                 {tool}
               </span>
             ))}
           </div>
-
-          <div
-            className="neo-card"
-            style={{ marginTop: "2rem", textAlign: "center" }}
-          >
-            <h4>
-              Focus is not just on tools, but on how to use them effectively.
-            </h4>
-          </div>
         </div>
       </section>
 
       {/* ===== OUTCOMES ===== */}
-      <section className="neo-section neo-section--green reveal" id="outcomes">
+      <section className="neo-section neo-section--yellow reveal" id="outcomes">
         <div className="container">
           <div className="section-header">
             <span className="neo-badge section-header__tag">Outcomes</span>
@@ -584,9 +348,9 @@ export default function ProgramPage() {
               "A clear understanding of career paths",
               "A 90-day action plan for growth",
             ].map((item, i) => (
-              <div key={i} className="neo-card" style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start" }}>
-                <span style={{ marginTop: "2px" }}><Check size={20} strokeWidth={3} /></span>
-                <p style={{ fontWeight: 600 }}>{item}</p>
+              <div key={i} className="neo-card" style={{ display: "flex", gap: "0.75rem", alignItems: "flex-start" }}>
+                <Check size={20} strokeWidth={3} style={{ flexShrink: 0, marginTop: "2px", color: "var(--orange)" }} />
+                <p style={{ fontWeight: 700 }}>{item}</p>
               </div>
             ))}
           </div>
@@ -594,20 +358,26 @@ export default function ProgramPage() {
       </section>
 
       {/* ===== PHILOSOPHY ===== */}
-      <section className="neo-section neo-section--purple reveal" id="philosophy">
+      <section className="neo-section neo-section--dark reveal" id="philosophy">
         <div className="container" style={{ textAlign: "center" }}>
-          <span className="neo-badge neo-badge--white" style={{ marginBottom: "1.5rem" }}>
-            Philosophy
-          </span>
-          <h2 style={{ color: "var(--color-black)", marginBottom: "1.5rem" }}>
+          <span className="neo-badge neo-badge--yellow" style={{ marginBottom: "1.5rem" }}>Philosophy</span>
+          <h2 style={{ color: "var(--white)", marginBottom: "1.5rem", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
             &quot;Tools are just tools.
             <br />
-            Your thinking is the real product.&quot;
+            Your thinking is the{" "}
+            <span style={{ color: "var(--yellow)" }}>real product</span>.&quot;
           </h2>
-          <div className="grid-3" style={{ marginTop: "2rem" }}>
+          <div className="grid-3" style={{ marginTop: "2rem", maxWidth: "700px", marginLeft: "auto", marginRight: "auto" }}>
             {["Clarity", "Creativity", "Execution"].map((item, i) => (
-              <div key={i} className="neo-card" style={{ textAlign: "center" }}>
-                <h3>{item}</h3>
+              <div
+                key={i}
+                style={{
+                  padding: "1.5rem",
+                  border: "2px solid rgba(255,255,255,0.15)",
+                  textAlign: "center",
+                }}
+              >
+                <h3 style={{ color: "var(--yellow)" }}>{item}</h3>
               </div>
             ))}
           </div>
@@ -616,12 +386,12 @@ export default function ProgramPage() {
 
       {/* ===== FINAL CTA ===== */}
       <section
-        className="neo-section neo-section--orange"
+        className="neo-section neo-section--yellow"
         id="program-cta"
-        style={{ textAlign: "center" }}
+        style={{ textAlign: "center", paddingTop: "5rem", paddingBottom: "5rem" }}
       >
         <div className="container">
-          <h2 style={{ marginBottom: "1rem" }}>This is where things change.</h2>
+          <h2 style={{ marginBottom: "1.5rem" }}>This is where things change.</h2>
           <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "2rem" }}>
             <span className="neo-badge">Learning → Building</span>
             <span className="neo-badge">Confusion → Clarity</span>
