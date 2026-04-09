@@ -101,7 +101,7 @@ export default function HomePage() {
                 <Calendar size={14} strokeWidth={3} /> Summer 2026 · Ahmedabad
               </div>
 
-              <h1 style={{ marginBottom: "1.5rem", color: "var(--white)" }}>
+              <h1 style={{ marginBottom: "1.5rem", color: "var(--white)" }} id="main-hero-heading">
                 Learn what
                 <br />
                 schools{" "}
